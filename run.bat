@@ -1,4 +1,5 @@
-SET NINJA_EXE=ninja-1.11.1.conti.2.exe
+rem SET NINJA_EXE=ninja-1.11.1.conti.2.exe
+SET NINJA_EXE=ninja-pr2366-Jun12.exe
 
 DEL output.dynamic
 DEL output.static
