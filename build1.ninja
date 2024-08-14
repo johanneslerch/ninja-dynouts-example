@@ -1,8 +1,7 @@
 rule dynoutRule
-   command = cmd /C echo test>$out&&echo output.dynamic>dynout&&echo foo>output.dynamic
+   command = cmd /C echo test>$out&&echo output.dynamic>dynout&&echo foobar>output.dynamic
 
 build output.static: dynoutRule input
    dynout = dynout
 
 default output.static
-

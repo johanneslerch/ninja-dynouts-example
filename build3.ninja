@@ -1,8 +1,7 @@
 rule dynoutRule
-   command = cmd /C echo test>$out&&echo output.dynamic>dynout&&echo foobar>output.dynamic
+   command = cmd /C echo test>$out&&type nul>dynout
 
 build output.static: dynoutRule input
-   dynout = dynout
 
 rule conflict
    command = cmd /C echo test>$out
