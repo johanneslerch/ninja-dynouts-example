@@ -1,7 +1,8 @@
 rem SET NINJA_EXE=ninja-1.11.1.conti.2.exe
 rem SET NINJA_EXE=ninja-pr2366-Jun12.exe
 rem set NINJA_EXE=D:\git\ninja\ninja.exe
-SET NINJA_EXE=ninja-1.11.1.conti.3.exe
+rem SET NINJA_EXE=ninja-1.11.1.conti.3.exe
+SET NINJA_EXE=ninja-1.11.1.dyndep-single-stmt.exe
 
 DEL output.dynamic
 DEL output.static
@@ -17,7 +18,7 @@ DEL .ninja_log
 
 
 @echo ----------------------------------------
-@echo invoke with a changed build graph contining a conflict: should complain about conflict
+@echo invoke with a changed build graph containing a conflict: should complain about conflict
 %NINJA_EXE% -d explain -f build2.ninja
 
 @echo ----------------------------------------

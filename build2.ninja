@@ -1,8 +1,8 @@
 rule dynoutRule
-   command = cmd /C echo test>$out&&echo output.dynamic>dynout&&echo foobar>output.dynamic
+   command = cmd /C echo test>$out&&echo foobar>output.dynamic&&(echo ninja_dyndep_version = 1 & echo build $out ^| output.dynamic : dyndep) > dynout
 
-build output.static: dynoutRule input
-   dynout = dynout
+build output.static | dynout: dynoutRule input
+   dyndep = dynout
 
 rule conflict
    command = cmd /C echo test>$out

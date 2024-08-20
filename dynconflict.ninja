@@ -1,10 +1,10 @@
 rule dynoutRule
-   command = cmd /C echo test>$out&&echo output.dynamic>$out.dynout&&echo foobar>output.dynamic
+   command = cmd /C echo test>$out&&echo foobar>output.dynamic && (echo ninja_dyndep_version = 1 & echo build $out ^| output.dynamic : dyndep) > $out.dynout
 
-build output: dynoutRule input
-   dynout = output.dynout
+build output | output.dynout: dynoutRule input
+   dyndep = output.dynout
 
-build output2: dynoutRule input
-   dynout = output2.dynout
+build output2 | output2.dynout: dynoutRule input
+   dyndep = output2.dynout
 
 default output output2
